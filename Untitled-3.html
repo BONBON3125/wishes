@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пожелания для молодоженов</title>
+    <!-- Google Fonts for elegant typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #775a5a7a;
+            margin: 0;
+            
+            padding: 0;
+            text-align: center;
+            color: #5a5a5a;
+            background-image: url('https://www.pxfuel.com/en/free-photo-jlfak'); /* Ссылка на фон */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 50px;
+            color: #947372;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container {
+            margin-bottom: 50px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            font-size: 18px;
+            border: 1px solid #9c7776;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            resize: none;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        textarea:focus {
+            border-color: #ab8383;
+        }
+
+        button {
+            background-color: #9d7a79;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #d0abab;
+        }
+
+        .messages {
+            margin-top: 40px;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .message {
+            background-color: #cbb5b5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .message p {
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+            color: #5a5a5a;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+            color: #806160;
+            font-weight: 600;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+
+            textarea {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Оставьте ваше пожелание!</h1>
+        <p>Мы будем счастливы получить от вас тёплые слова на нашем важном событии!</p>
+
+        <div class="form-container">
+            <textarea id="wishText" placeholder="Введите ваше пожелание"></textarea><br>
+            <button onclick="submitWish()">Отправить пожелание</button>
+        </div>
+
+        <div class="messages" id="messagesContainer">
+            <h2>Пожелания гостей:</h2>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>С любовью, <br>Миша и Анаит</p>
+    </div>
+
+    <script>
+        // Функция для отправки пожелания
+        function submitWish() {
+            const wishText = document.getElementById('wishText').value.trim();
+
+            if (wishText === '') {
+                alert('Пожалуйста, введите ваше пожелание!');
+                return;
+            }
+
+            // Создание нового элемента для отображения пожелания
+            const newMessage = document.createElement('div');
+            newMessage.classList.add('message');
+            newMessage.innerHTML = `<p>${wishText}</p>`;
+            
+            // Добавление нового пожелания в контейнер
+            document.getElementById('messagesContainer').appendChild(newMessage);
+
+            // Очистка поля ввода после отправки
+            document.getElementById('wishText').value = '';
+        }
+    </script>
+
+</body>
+</html>
+
